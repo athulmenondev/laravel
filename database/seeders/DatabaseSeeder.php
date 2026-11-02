@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $rows = [
+            ['21', 'Athul S Menon', 8.28],
             ['CS23-01', 'Ananya Menon',   8.72],
             ['CS23-02', 'Rahul Krishnan', 7.95],
             ['CS23-03', 'Fathima Nasrin', 9.10],
