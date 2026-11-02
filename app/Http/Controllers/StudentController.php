@@ -18,21 +18,25 @@ class StudentController extends Controller
         return view('students.create');
     }
 
-    public function store(Request $request)
-    {
-        $validated = $request->validate([
-            'roll_no'    => 'required|string',
-            'name'       => 'required|string',
-            'email'      => 'required|email',
-            'department' => 'required|string',
-            'semester'   => 'required|integer',
-            'cgpa'       => 'required|numeric',
-        ]);
+    
+public function store(Request $request)
+{
+    $validated = $request->validate([
+        'roll_no'    => 'required|string',
+        'name'       => 'required|string',
+        'email'      => 'required|email',
+        'department' => 'required|string',
+        'semester'   => 'required|integer',
+        'cgpa'       => 'required|numeric',
+    ]);
 
-        Student::create($validated);
+    $student = Student::create($validated);
 
-        return redirect('/students')->with('status', 'Student created successfully!');
-    }
+    return redirect()
+        ->route('students.show', $student)
+        ->with('status', 'Student created successfully!');
+}
+
 
     public function show(Student $student)
     {
