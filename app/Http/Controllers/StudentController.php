@@ -24,11 +24,14 @@ public function store(Request $request)
     $validated = $request->validate([
         'roll_no'    => 'required|string',
         'name'       => 'required|string',
-        'email'      => 'required|email',
-        'department' => 'required|string',
-        'semester'   => 'required|integer',
-        'cgpa'       => 'required|numeric',
+        'email'      => 'nullable|email',
+        'department' => 'nullable|string',
+        'semester'   => 'nullable|integer',
+        'cgpa'       => 'nullable|numeric',
     ]);
+
+    // Drop empty fields so the database defaults (CSE, 7) apply
+    $validated = array_filter($validated, fn ($v) => $v !== null && $v !== '');
 
     $student = Student::create($validated);
 

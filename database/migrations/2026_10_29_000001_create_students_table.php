@@ -13,7 +13,7 @@ return new class extends Migration
             $table->id();                       // 1, 2, 3 ... (used in /students/{student})
             $table->string('roll_no')->unique(); // e.g. CS23-07
             $table->string('name');
-            $table->string('email')->unique();
+            $table->string('email')->nullable()->unique();
             $table->string('department')->default('CSE');
             $table->unsignedTinyInteger('semester')->default(7);
             $table->decimal('cgpa', 4, 2)->nullable();

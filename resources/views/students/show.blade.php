@@ -1,5 +1,4 @@
 
-```blade
 @extends('layouts.app')
 
 @section('content')
@@ -16,4 +15,3 @@
     <p><strong>Semester:</strong> {{ $student->semester }}</p>
     <p><strong>CGPA:</strong> {{ $student->cgpa }}</p>
 @endsection
-```
