@@ -1,6 +1,14 @@
+
+```blade
 @extends('layouts.app')
 
 @section('content')
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
+
     <h1>{{ $student->name }}</h1>
     <p><strong>Roll No:</strong> {{ $student->roll_no }}</p>
     <p><strong>Email:</strong> {{ $student->email }}</p>
@@ -8,3 +16,4 @@
     <p><strong>Semester:</strong> {{ $student->semester }}</p>
     <p><strong>CGPA:</strong> {{ $student->cgpa }}</p>
 @endsection
+```
