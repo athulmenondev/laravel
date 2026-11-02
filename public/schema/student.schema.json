@@ -1,17 +1,33 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "array",
-  "items": {
-    "type": "object",
-    "properties": {
-      "id": { "type": "integer" },
-      "roll_no": { "type": "string" },
-      "name": { "type": "string" },
-      "email": { "type": "string" },
-      "department": { "type": "string" },
-      "semester": { "type": "integer" },
-      "cgpa": { "type": ["number", "string"] }
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "roll_no": {
+      "type": "string"
     },
-    "required": ["id", "roll_no", "name", "email", "department", "semester", "cgpa"]
-  }
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "department": {
+      "type": "string"
+    },
+    "semester": {
+      "type": "integer"
+    },
+    "cgpa": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "roll_no",
+    "name",
+    "email",
+    "department",
+    "semester",
+    "cgpa"
+  ]
 }
