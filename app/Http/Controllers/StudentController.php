@@ -31,13 +31,11 @@ class StudentController extends Controller
 
         Student::create($validated);
 
-        // Flash status redirect for Part D
-        return redirect()->route('students.index')->with('status', 'Student created successfully!');
+        return redirect('/students')->with('status', 'Student created successfully!');
     }
 
     public function show(Student $student)
     {
-        // Implicit Route Model Binding returns 404 automatically for non-existent IDs (Part C)
         return view('students.show', compact('student'));
     }
 }
